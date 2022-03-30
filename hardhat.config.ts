@@ -122,10 +122,5 @@ export default {
     outDir: './types/contracts/',
     target: 'ethers-v5',
     alwaysGenerateOverloads: false // should overloads with full signatures like deposit(uint256) be generated always, even if there are no overloads?
-  },
-
-  proposals: {
-    governor: '0x0BEF27FEB58e857046d630B2c03dFb7bae567494',
-    votingToken: '0xc7283b66Eb1EB5FB86327f08e1B5816b0720212B'
   }
 } as HardhatUserConfig;

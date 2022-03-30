@@ -2,7 +2,7 @@
 - $71,250 USDC main award pot
 - $3,750 USDC gas optimization award pot
 - Join [C4 Discord](https://discord.gg/code4rena) to register
-- Submit findings [using the C4 form](https://code4rena.com/contests/2022-03-volt-contest/submit)
+- Submit findings [using the C4 form](https://code4rena.com/contests/2022-03-volt-protocol-contest/submit)
 - [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
 - Starts March 31, 2022 00:00 UTC
 - Ends April 6, 2022 23:59 UTC

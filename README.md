@@ -158,34 +158,12 @@ The oracle system has a small attack surface with only 1 state-changing function
 
 Any errors in OraclePassThrough are very bad because replacing this contract would require governance actions across multiple DeFi protocols. Any issues that could block updates to the ScalingPriceOracle reference in the OraclePassThrough at the smart contract level are critical. Returning an incorrect price is also critical, however, rounding down by 1 off a price scaled up by 1e18 will not be considered as a valid issue as that implicitly happens.
 
-## Testnet deployment
-
-A working instance of the VOLT Protocol has been deployed to Kovan for this contest. Feel free to poke around, but if you are going to do something that might have a large impact on the contracts, please do so on a fork so that we don't have to redeploy them. All contracts have been verified on Etherscan.
-
-| Mocks                         | Address |
-|-------------------------------|------------------------------------------------------|
-MockVOLTcToken
-MockFEIcToken
-VOLT
-FEI
-	
-| Protocol                      | Address |
-|-------------------------------|------------------------------------------------------|
-NonCustodialPSM
-ERC20CompoundPCVDeposit - VOLT
-ERC20CompoundPCVDeposit - FEI
-GlobalRateLimitedMinter
-Core
-
-
-| Oracle                        | Address |
-|-------------------------------|------------------------------------------------------|
-OraclePassThrough
-ScalingPriceOracle
-
 ## Gas Optimizations
 The following gas optimizations will not be accepted:
 * Making functions payable to save gas.
 * Any logic change requiring additional assembly.
 * Adding functionality to CompoundPCVDeposit to transfer existing balance before pulling assets out of Compound.
 * Make duration in Timed.sol immutable.
+
+### MythX Report
+None of the findings in the MythX report will be accepted as findings.

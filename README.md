@@ -61,7 +61,7 @@ Under "SPONSORS ADD INFO HERE" heading below, include the following:
 
 ---
 
-# Volt contest details
+# ⚡Volt contest details ⚡
 - $71,250 USDC main award pot
 - $3,750 USDC gas optimization award pot
 - Join [C4 Discord](https://discord.gg/code4rena) to register
@@ -80,16 +80,16 @@ VOLT will start at a price of $1 and adjust over time according to Consumer Pric
 
 All the contracts in this section are to be reviewed. Any contracts not in this list are to be ignored.
 
-Smart contract [architecture docs](https://github.com/volt-protocol/volt-protocol-core/blob/develop/README.md).
+For more in-depth smart contract docs, refer to the [smart contract architecture docs](SYSTEMARCHITECTURE.md).
 
 ### ScalingPriceOracle.sol (223 sloc)
 VOLT system oracle contract that receives a chainlink price feed and then linearly interpolates that rate over a 28 day period into the VOLT price. Interest is compounded monthly when the rate is updated.
 
 ### OraclePassThrough.sol (66 sloc)
-Oracle contract that the whole VOLT system points to. Passes all price calls to the Scaling Price Oracle and returns the result. The Scaling Price Oracle can be changed if there is a decision to change how data is interpolated without needing all contracts in the system to be upgraded, only this contract will have to change where it points
+Oracle contract that the whole VOLT system points to. Passes all price calls to the Scaling Price Oracle and returns the result. The Scaling Price Oracle can be changed if there is a decision to change how data is interpolated without needing all contracts in the system to be upgraded, only this contract will have to change where it points.
 
 ### OracleRef.sol (158 sloc)
-Stores a reference to an Oracle and defines some utilities around interacting with the referenced oracle. Used in NonCustodialPSM.
+Stores a reference to an Oracle and defines some utilities around interacting with the referenced oracle. Used in NonCustodialPSM to fetch price from OraclePassThrough.
 
 ### RateLimited.sol (158 sloc)
 Abstract contract for putting a rate limit on how fast a contract can perform an action e.g. Minting. Used in MultiRateLimited and Non Custodial PSM.
@@ -101,10 +101,10 @@ Abstract contract for putting a rate limit on how fast an address can perform an
 Global contract to handle rate limited minting of VOLT on a global level. Allows whitelisted minters to call in and specify the address to mint VOLT to within that contract's limits. Leverages MultiRateLimited.sol and RateLimited.sol.
 
 ### Volt.sol (96 sloc)
-Custom implementation of the ERC20 specification. Contains a reference to Core, and the minter role is allowed to mint VOLT.
+Custom implementation of the ERC20 specification. Contains a reference to Core, and the minter role is allowed to mint VOLT. In the VOLT system, only GlobalRateLimitedMinter will have the minter role.
 
 ### Core.sol (32 sloc)
-Source of truth for the VOLT Protocol. Stores all roles, role admins, and which roles different users have.
+Source of truth for the VOLT Protocol. Stores all roles, role admins, and which roles different users have. Referenced by all contracts that change state within the VOLT system.
 
 ### Permissions.sol (214 sloc)
 Access control module for Core. Sets major contract roles. Provides opinionated methods for accessing openzeppelin's AccessControlEnumerable.sol roles.
@@ -113,9 +113,9 @@ Access control module for Core. Sets major contract roles. Provides opinionated 
 References the source of truth for the VOLT Protocol. Defines modifiers and utilities around interacting with Core.
 
 ### TribeRoles.sol (80 sloc)
-Contract that stores VOLT DAO ACL Roles. Holds a complete list of all roles which can be held by contracts inside Tribe DAO.
+Contract that stores VCON DAO ACL Roles. Holds a complete list of all roles which can be held by contracts inside VCON DAO.
 Roles are broken up into 3 categories:
-* Major Roles - the most powerful roles in the Tribe DAO which should be carefully managed.
+* Major Roles - the most powerful roles in the VCON DAO which should be carefully managed.
 * Admin Roles - roles with management capability over critical functionality. Should only be held by automated or optimistic mechanisms
 * Minor Roles - operational roles. May be held or managed by shorter optimistic timelocks or trusted multisigs.
 
@@ -152,36 +152,11 @@ Script to deploy the Core and VOLT contracts.
 Script to deploy the ScalingPriceOracle and OraclePassThrough.
 
 ## Areas of concern
-The Non Custodial Peg Stability Module is one of the centerpieces of this system as it allows users to buy and sell VOLT and is responsible for always keeping the floor price of VOLT at the redemption price. This module is hardcoded to invert the oracle price of VOLT so that the VOLT oracle will work with the Non Custodial PSM. In most deployments of the PSM, all assets that had a non fixed price were the external asset, i.e. one the PSM couldn't mint. So the oracle would fetch the price of the external asset and use that to price swaps. However, in this system, the mintable asset's price is not fixed to a dollar, but determined based off the OraclePassThrough and ScalingPriceOracle, so this system makes the assumption that all external assets i.e. stablecoins maintain their peg.
+The Non Custodial Peg Stability Module is one of the centerpieces of this system as it allows users to buy and sell VOLT and is responsible for always keeping the floor price of VOLT at the redemption price. This module is hardcoded to invert the oracle price of VOLT so that the VOLT oracle will work with the Non Custodial PSM. In most deployments of the PSM, all assets that had a non fixed price were the external asset, i.e. one the PSM couldn't mint. So the oracle would fetch the price of the external asset and use that to price swaps. However, in this system, the mintable asset's price is not fixed to a dollar, but determined based off the OraclePassThrough and ScalingPriceOracle, so this system makes the assumption that all external assets i.e. stablecoins maintain their peg to a dollar.
 
 The oracle system has a small attack surface with only 1 state-changing function that is not permissioned `requestCPIData()`. This function is locked down and only callable once per month after the 14th. The assumption in this system is that there are multiple jobs and parties that want to send a transaction to request this data once per month, so the job will always be triggered within a day of being able to. If the `requestCPIData` function is not called once per month, then the ScalingPriceOracle will not have correct data and there will need to be a governance action to swap out the ScalingPriceOracle that the OraclePassThrough points to.
 
 Any errors in OraclePassThrough are very bad because replacing this contract would require governance actions across multiple DeFi protocols. Any issues that could block updates to the ScalingPriceOracle reference in the OraclePassThrough at the smart contract level are critical. Returning an incorrect price is also critical, however, rounding down by 1 off a price scaled up by 1e18 will not be considered as a valid issue as that implicitly happens.
-
-## Testnet deployment
-
-A working instance of the VOLT Protocol has been deployed to Kovan for this contest. Feel free to poke around, but if you are going to do something that might have a large impact on the contracts, please do so on a fork so that we don't have to redeploy them. All contracts have been verified on Etherscan.
-
-| Mocks                         | Address |
-|-------------------------------|------------------------------------------------------|
-MockVOLTcToken
-MockFEIcToken
-VOLT
-FEI
-	
-| Protocol                      | Address |
-|-------------------------------|------------------------------------------------------|
-NonCustodialPSM
-ERC20CompoundPCVDeposit - VOLT
-ERC20CompoundPCVDeposit - FEI
-GlobalRateLimitedMinter
-Core
-
-
-| Oracle                        | Address |
-|-------------------------------|------------------------------------------------------|
-OraclePassThrough
-ScalingPriceOracle
 
 ## Gas Optimizations
 The following gas optimizations will not be accepted:
@@ -189,3 +164,6 @@ The following gas optimizations will not be accepted:
 * Any logic change requiring additional assembly.
 * Adding functionality to CompoundPCVDeposit to transfer existing balance before pulling assets out of Compound.
 * Make duration in Timed.sol immutable.
+
+### MythX Report
+None of the issues in the MythX report will be accepted as findings.

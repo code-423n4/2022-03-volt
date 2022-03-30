@@ -75,12 +75,12 @@ Under "SPONSORS ADD INFO HERE" heading below, include the following:
 Inflation erodes the purchasing power of savers over time. Unpredictable inflation rates make it impossible to plan ahead financially when the value of money itself is constantly in flux. The U.S. Dollar lost 7.5% of its value in the last year alone, the highest inflation rate in 39 years. Volt offers a solution -- a stablecoin that defeats inflation by tracking real world prices, rather than pegging its value to a depreciating fiat currency.
 
 VOLT will start at a price of $1 and adjust over time according to Consumer Price Index (CPI) data. VOLT holders can preserve their wealth over time without the need to actively manage their savings or take on excessive risk. Like MakerDAO’s DAI, VOLT will be backed by a mixture of user-deposited collateral and protocol-controlled assets. Compared to speculating on volatile assets like Bitcoin or “yield farming” with stablecoins, VOLT is a much easier and safer way for holders to preserve their purchasing power.
- 
+
 ## Smart Contracts
 
 All the contracts in this section are to be reviewed. Any contracts not in this list are to be ignored.
 
-Smart contract [architecture docs](https://github.com/volt-protocol/volt-protocol-core/blob/develop/SystemArchitecture.md).
+Smart contract [architecture docs](https://github.com/volt-protocol/volt-protocol-core/blob/develop/README.md).
 
 ### ScalingPriceOracle.sol (223 sloc)
 VOLT system oracle contract that receives a chainlink price feed and then linearly interpolates that rate over a 28 day period into the VOLT price. Interest is compounded monthly when the rate is updated.

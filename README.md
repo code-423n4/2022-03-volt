@@ -61,7 +61,7 @@ Under "SPONSORS ADD INFO HERE" heading below, include the following:
 
 ---
 
-# Volt contest details
+# ⚡Volt contest details ⚡
 - $71,250 USDC main award pot
 - $3,750 USDC gas optimization award pot
 - Join [C4 Discord](https://discord.gg/code4rena) to register
@@ -166,4 +166,4 @@ The following gas optimizations will not be accepted:
 * Make duration in Timed.sol immutable.
 
 ### MythX Report
-None of the findings in the MythX report will be accepted as findings.
+None of the issues in the MythX report will be accepted as findings.

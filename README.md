@@ -17,7 +17,7 @@ VOLT will start at a price of $1 and adjust over time according to Consumer Pric
 
 All the contracts in this section are to be reviewed. Any contracts not in this list are to be ignored.
 
-For more in-depth smart contract docs, refer to the [smart contract architecture docs](SYSTEMARCHITECTURE.md).
+For more in-depth smart contract docs, refer to the [smart contract architecture docs](https://github.com/code-423n4/2022-03-volt/blob/main/SYSTEMARCHITECTURE.md).
 
 ### ScalingPriceOracle.sol (223 sloc)
 VOLT system oracle contract that receives a chainlink price feed and then linearly interpolates that rate over a 28 day period into the VOLT price. Interest is compounded monthly when the rate is updated.

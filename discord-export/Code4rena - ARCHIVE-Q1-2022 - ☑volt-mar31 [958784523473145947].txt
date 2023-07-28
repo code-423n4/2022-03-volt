@@ -1,0 +1,128 @@
+==============================================================
+Guild: Code4rena
+Channel: ARCHIVE-Q1-2022 / ☑volt-mar31
+==============================================================
+
+[03/30/2022 5:52 PM] liveactionllamac4
+👋 Hello and welcome to the contest channel for the **$75K USDC Volt** contest!
+
+📆 Contest opens March 31, 2022 at 0:00 UTC and runs through April 6, 2022 at 23:59 UTC (7 days).
+
+Please give a warm welcome to the Volt team, particularly @elliot, who will be available for questions either here in the channel or via DM.
+
+We'll be posting relevant links, documentation, etc. here, so if you intend to participate in this contest, consider enabling notifications for this channel. 🐺 ⏰
+
+Contest Page: https://code4rena.com/contests/2022-03-volt-protocol-contest
+
+{Embed}
+https://code4rena.com/contests/2022-03-volt-protocol-contest
+Code4rena Volt Protocol contest
+$75,000 USDC
+31 March 2022—6 April 2022
+Code4rena - ARCHIVE-Q1-2022 - ☑volt-mar31 [958784523473145947].txt_Files/C4-banner-7C19B.png
+
+{Reactions}
+👋 (6) ⚡ (5) 🥳 (3) 
+
+[03/31/2022 12:56 AM] onetruekirk
+Hello wardens, also feel free to ping me with questions. I'll also be hosting a Twitter spaces tomorrow at 4PM PST and every day of the contest, it would be great if anyone wants to come by, meet, and discuss VOLT.
+
+{Reactions}
+👍 (3) ⚡ (3) 
+
+[03/31/2022 12:57 AM] onetruekirk
+Really grateful for any and all help in securing Volt
+
+
+[04/01/2022 8:10 AM] 0xsomnus
+https://code4rena.com/contests/SYSTEMARCHITECTURE.md
+
+{Embed}
+https://code4rena.com/contests/SYSTEMARCHITECTURE.md
+The future of audits is decentralized.
+Code4rena - ARCHIVE-Q1-2022 - ☑volt-mar31 [958784523473145947].txt_Files/C4-banner-7C19B.png
+
+
+[04/01/2022 8:11 AM] 0xsomnus
+Broken link
+
+
+[04/01/2022 8:11 AM] 0xsomnus
+Meant to be https://github.com/code-423n4/2022-03-volt/blob/main/SYSTEMARCHITECTURE.md
+
+{Embed}
+https://github.com/code-423n4/2022-03-volt/blob/main/SYSTEMARCHITECTURE.md
+2022-03-volt/SYSTEMARCHITECTURE.md at main · code-423n4/2022-03-volt
+Contribute to code-423n4/2022-03-volt development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q1-2022 - ☑volt-mar31 [958784523473145947].txt_Files/3d3968c7-5a35-4227-9a26-336a0ab9c2bc-8A3B0
+
+{Reactions}
+👀 
+
+[04/01/2022 5:04 PM] liveactionllamac4
+Thank you! This has been fixed. 🙂
+
+
+[04/04/2022 9:09 PM] teryanarmen
+@OneTrueKirk Will FEI be the only token that is used to mint VOLT or are there plans to add this functionality for other stables?
+
+
+[04/05/2022 9:51 PM] elliot#8872
+There could be other stables added, however, USDT will definitely not be added
+
+{Reactions}
+👍 
+
+[04/05/2022 10:36 PM] 3bagsFull#1604
+why not USDT? just curious.
+
+
+[04/05/2022 10:38 PM] elliot#8872
+it's the sketchiest of all centralized stablecoins, it always has FUD and they hold debt in chinese real estate development firms which is a very suspect sector because of the recent defaults.
+
+{Reactions}
+thankyou (2) 
+
+[04/06/2022 4:20 AM] onetruekirk
+Elaborating on this topic, it is likely that other stablecoins will be onboarded in the future. Any stablecoin that is verifiably fully backed or overcollateralized and offers access to an attractive DeFi yield source could be a candidate, the most notable examples would be DAI and USDC which are more widely integrated in DeFi than FEI today.
+
+VOLT will not be mintable against undercollateralized stablecoins or those with risky or unverifiable backing like USDT.
+
+{Reactions}
+👍 (4) 
+
+[04/06/2022 5:07 PM] onetruekirk
+Just wanted to say thank you again to everyone who has participated and we're excited to review all your input in detail!
+
+{Reactions}
+hi5 (2) 
+
+[04/07/2022 12:02 AM] C4
+**🚨 CONTEST ALERT**
+
+@🐺wardens The **Volt** contest is now closed! Huge thanks to everyone who participated🔍, whether you submitted a finding or not.
+
+What's next: the Volt team will review the findings over the next couple of days, and then we'll pass them off to the judge. Keep an eye on #📢announcements for regular updates on how the contest is progressing through awarding 🤑🏆, judging 🧑‍⚖️ and reporting 📜. Feel free to ping a gardener if you have questions along the way!
+
+
+[05/11/2022 12:02 AM] teryanarmen
+any updates here?
+
+
+[05/11/2022 4:41 PM] liveactionllamac4
+Looks like it is getting close! I wouldn't be surprised if awards were announced by early next week. 🤞
+
+
+[06/29/2022 6:20 AM] catchup#2659
+Hi, any news on the audit report?
+
+
+[06/29/2022 7:08 PM] itsmetechjay
+Report just went live: https://code4rena.com/reports/2022-03-volt/
+
+{Reactions}
+🎉 
+
+==============================================================
+Exported 18 message(s)
+==============================================================
